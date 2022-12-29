@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { useSignup } from '../hook/useSignup';
 import styles from './SignUp.module.css';
 
 export default function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { error, isPending, signup } = useSignup();
   function handleSubmit(e) {
     e.preventDefault();
+    signup(email, password, name);
   }
   return (
     <form className={styles['signup-form']} onSubmit={handleSubmit}>
@@ -38,7 +42,13 @@ export default function SignUp() {
           required
         />
       </label>
-      <button className='btn'>Signup</button>
+      {!isPending && <button className='btn'>Signup</button>}
+      {isPending && (
+        <button className='btn' disabled>
+          loading..
+        </button>
+      )}
+      {error && <p>{error}</p>}
     </form>
   );
 }
