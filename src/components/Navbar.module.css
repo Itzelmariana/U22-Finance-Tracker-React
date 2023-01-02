@@ -1,6 +1,7 @@
+/* navbar styles */
 .navbar {
   width: 100%;
-  background-color: #effaf0;
+  background: #effaf0;
   padding: 20px 10px;
   box-sizing: border-box;
 }
@@ -16,11 +17,10 @@
   letter-spacing: 1px;
   font-size: 1.2em;
 }
-.navbar button .navbar a {
+.navbar button, .navbar a {
   margin-left: 16px;
 }
 .navbar a {
   color: #333;
   text-decoration: none;
-  margin-right: 16px;
 }
