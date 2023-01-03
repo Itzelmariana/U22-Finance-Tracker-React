@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyBsB81UmeqtWmIRuqLLMagfrFtUiP86YAw',
   authDomain: 'mymoney-bfdbc.firebaseapp.com',
@@ -17,4 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const projectFirestore = firebase.firestore();
 const projectAuth = firebase.auth();
 
-export { projectFirestore, projectAuth };
+//timestamp
+const timestamp = firebase.firestore.Timestamp;
+
+export { projectFirestore, projectAuth, timestamp };
